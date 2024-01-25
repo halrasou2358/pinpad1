@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="arabic">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pin Pad System</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    #pin-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .button {
+      width: 20px;
+      height: 20px;
+      font-size: 10px;
+      text-align: top left;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div id="pin-container">
+    
+    <div class="button" onclick="appendToPin(1)">1</div>
+    <div class="button" onclick="appendToPin(2)">2</div>
+    <div class="button" onclick="appendToPin(3)">3</div>
+    <div class="button" onclick="appendToPin(4)">4</div>
+    <div class="button" onclick="appendToPin(5)">5</div>
+    <div class="button" onclick="appendToPin(6)">6</div>
+    <div class="button" onclick="appendToPin(7)">7</div>
+    <div class="button" onclick="appendToPin(8)">8</div>
+    <div class="button" onclick="appendToPin(9)">9</div>
+    <div class="button" onclick="clearPin()">C</div>
+    <div class="button" onclick="appendToPin(0)">0</div>
+    <div class="button" onclick="submitPin()">Submit</div>
+  </div>
+  
+ 
+  <p id="count">Pin:</p>
+ 
+  <script>
+    const correctPin = '4444';
+    let enteredPin = '';
+
+   
+
+    function appendToPin(number) {
+      enteredPin += number;
+      document.getElementById('count').innerHTML=enteredPin;
+    }
+
+    function clearPin() {
+      enteredPin = '';
+      document.getElementById('count').innerHTML=enteredPin;
+    }
+
+    function submitPin() {
+      if (enteredPin === correctPin) {
+        alert('Correct Pin! Initiating Action');
+        // Add your desired action here, such as changing an image or text.
+      } else {
+        alert('Incorrect Pin. Try again.');
+        clearPin();
+      }
+     
+   
+    }
+
+  </script>
+</body>
+</html>
